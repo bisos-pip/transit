@@ -19,12 +19,10 @@ def longDescription():
 
 
 # __version__ = get_version('unisos/icm/__init__.py')
-__version__ = '0.2'
+__version__ = '0.1'
 
 
 requires = [
-    'invoke',
-    'unisos.icm',
 ]
 
 
@@ -32,11 +30,12 @@ requires = [
 # print('Requirements: %s' % ','.join(requires))
 
 scripts = [
+    "../bin/facter.cs"
 ]
 
 
 setuptools.setup(
-    name='bisos.basics',
+    name='bisos.transit',
     version=__version__,
     namespace_packages=['bisos'],
     packages=setuptools.find_packages(),
