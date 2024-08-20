@@ -95,22 +95,24 @@ import subprocess
 
 import collections
 
-####+BEGIN: bx:dblock:global:file-insert-cond :cond "./blee.el" :file "/bisos/apps/defaults/update/sw/icm/py/importUcfIcmG.py"
-from unisos import ucf
-from unisos import icm
+####+BEGIN: b:py3:cs:framework/imports :basedOn "classification"
+""" #+begin_org
+** Imports Based On Classification=cs-u
+#+end_org """
+from bisos import b
+from bisos.b import cs, parsGetAsDictValue
+from bisos.b import b_io
+from bisos.common import csParam
 
-icm.unusedSuppressForEval(ucf.__file__)  # in case icm and ucf are not used
-
-G = icm.IcmGlobalContext()
-# G.icmLibsAppend = __file__
-# G.icmCmndsLibsAppend = __file__
+import collections
 ####+END:
 
 _facterCacheEnabled = True
 
 _facterCurCache = None
 
-####+BEGIN: bx:icm:py3:func :funcName "_runFacterAndGetJsonOutputBytes" :funcType "" :retType "" :deco "" :argsList "" :comment ""
+
+####+BEGIN: b:py3:cs:func/typing :funcName "_runFacterAndGetJsonOutputBytes" :funcType "eType" :retType "" :deco "default" :argsList ""
 """
 *  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /_runFacterAndGetJsonOutputBytes/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
 """
@@ -124,10 +126,11 @@ def _runFacterAndGetJsonOutputBytes(
     return jsonOutputBytes
 
 
-####+BEGIN: bx:icm:py3:func :funcName "_dictToNamedTuple" :funcType "" :retType "" :deco "" :argsList "" :comment ""
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /_dictToNamedTuple/  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "_dictToNamedTuple" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /_dictToNamedTuple/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def _dictToNamedTuple(
 ####+END:
         inDict,
@@ -139,10 +142,11 @@ def _dictToNamedTuple(
     return collections.namedtuple('Facts', inDict.keys(), rename=True)(*inDict.values())
 
 
-####+BEGIN: bx:icm:py3:func :funcName "_runFacterAndGetAllNamedTuple" :funcType "" :retType "" :deco "" :argsList "" :comment ""
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /_runFacterAndGetAllNamedTuple/  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "_runFacterAndGetAllNamedTuple" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /_runFacterAndGetAllNamedTuple/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def _runFacterAndGetAllNamedTuple(
 ####+END:
 ):
@@ -161,11 +165,11 @@ def _runFacterAndGetAllNamedTuple(
 
     return result
 
-
-####+BEGIN: bx:icm:py3:func :funcName "getAllAsNamedTuple" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /getAllAsNamedTuple/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "getAllAsNamedTuple" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /getAllAsNamedTuple/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def getAllAsNamedTuple(
 ####+END:
         cache=True,
@@ -187,10 +191,11 @@ def getAllAsNamedTuple(
 
     return _facterCurCache
 
-####+BEGIN: bx:icm:py3:func :funcName "get" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /get/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "get" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /get/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def get(
 ####+END:
         factName,
@@ -212,10 +217,11 @@ def get(
 
     return factValue
 
-####+BEGIN: bx:icm:py3:func :funcName "_getWithGetattrUnused" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /_getWithGetattrUnused/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "_getWithGetattrUnused" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /_getWithGetattrUnused/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def _getWithGetattrUnused(
 ####+END:
         factName,
@@ -238,10 +244,11 @@ def _getWithGetattrUnused(
 
     return
 
-####+BEGIN: bx:icm:py3:func :funcName "getOrDefault" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /getOrDefault/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "getOrDefault" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /getOrDefault/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def getOrDefault(
 ####+END:
         factName,
@@ -260,10 +267,11 @@ def getOrDefault(
 
     return factValue
 
-####+BEGIN: bx:icm:py3:func :funcName "cacheAvailabilityToggle" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /cacheAvailabilityToggle/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "cacheAvailabilityToggle" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /cacheAvailabilityToggle/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def cacheAvailabilityToggle(
 ####+END:
         enable=True,
@@ -277,10 +285,11 @@ def cacheAvailabilityToggle(
     else:
         _facterCacheEnabled = False
 
-####+BEGIN: bx:icm:py3:func :funcName "cacheAvailabilityObtain" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /cacheAvailabilityObtain/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "cacheAvailabilityObtain" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /cacheAvailabilityObtain/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def cacheAvailabilityObtain(
 ####+END:
         enable=True,
@@ -291,11 +300,11 @@ def cacheAvailabilityObtain(
     global _facterCacheEnabled
     return _facterCacheEnabled
 
-
-####+BEGIN: bx:icm:py3:func :funcName "_getNamedTupleOneLiner_unused" :funcType "" :retType "" :deco "" :argsList "" :comment "Instantiate specified class just once based on args."
-"""
-*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  Func-      :: /_getNamedTupleOneLiner_unused/ =Instantiate specified class just once based on args.=  [[elisp:(org-cycle)][| ]]
-"""
+####+BEGIN: b:py3:cs:func/typing :funcName "_getNamedTupleOneLiner_unused" :funcType "eType" :retType "" :deco "default" :argsList ""
+""" #+begin_org
+*  _[[elisp:(blee:menu-sel:outline:popupMenu)][±]]_ _[[elisp:(blee:menu-sel:navigation:popupMenu)][Ξ]]_ [[elisp:(outline-show-branches+toggle)][|=]] [[elisp:(bx:orgm:indirectBufOther)][|>]] *[[elisp:(blee:ppmm:org-mode-toggle)][|N]]*  F-T-eType  [[elisp:(outline-show-subtree+toggle)][||]] /_getNamedTupleOneLiner_unused/  deco=default  [[elisp:(org-cycle)][| ]]
+#+end_org """
+@cs.track(fnLoc=True, fnEntry=True, fnExit=True)
 def _getNamedTupleOneLiner_unused(
 ####+END:
 ):
