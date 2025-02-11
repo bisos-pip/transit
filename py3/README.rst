@@ -2,12 +2,19 @@
 bisos.transit: isc python modules accessible through the bisos.transit namesapce. Used in bisos and also generally available.
 =============================================================================================================================
 
-:Author: Mohsen BANAN
-:Date:   <2024-08-18 Sun 15:08>
-
 .. contents::
    :depth: 3
 ..
+
+Panel Controls:: `Show-All <elisp:(show-all)>`__
+`Overview <elisp:(org-shifttab)>`__
+`Content <elisp:(progn (org-shifttab) (org-content))>`__ \|
+`(1) <elisp:(delete-other-windows)>`__ \|
+`S&Q <elisp:(progn (save-buffer) (kill-buffer))>`__
+`Save <elisp:(save-buffer)>`__ `Quit <elisp:(kill-buffer)>`__
+`Bury <elisp:(bury-buffer)>`__ Links:
+`file:./panels/_nodeBase_/fullUsagePanel-en.org <./panels/_nodeBase_/fullUsagePanel-en.org>`__
+(Package Panel)
 
 Overview
 ========
